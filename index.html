@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Parks Finder</title>
+	<meta name="description" content="Find nearby national parks!">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="main.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">	
+</head>
+<body>
+	<div class="background"></div>
+	<main>
+		<h1 class="center-text">National Park Finder</h1>
+		<form id="form-state" class="center-text">
+			<fieldset>
+				<legend>State</legend>
+				<label for="input-state">State(s): </label>
+				<input type="text" name="input-state" id="input-state">
+				<input type="submit" id="input-state-submit" value="Go">
+			</fieldset>
+		</form>
+		<div class="center-text">
+			<div class="subtext center-text small-text">Use full state name or the two-letter postal abbreviation. Seperate multiples states wtih a comma.</div>
+		</div>
+		<section id="results">
+			
+		</section>
+		<footer>
+			<p>Powered by the <a href="https://www.nps.gov/subjects/developer/index.htm">National Parks Service API</a></p>
+		</footer>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

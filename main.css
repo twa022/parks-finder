@@ -1,0 +1,145 @@
+* { 
+	box-sizing: border-box;
+	font-family: 'Merriweather', serif;
+}
+
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient( rgba(225, 225, 225, 0.95), rgba(225, 225, 225, 0.87) ),
+	                  url('/tree.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	filter: blur(5px);
+	z-index: -10;
+}
+
+/*body {
+	min-height: 100vh;
+}*/
+
+main {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4.0rem; /* Make room for the footer */
+	font-size: 1.2rem;
+}
+
+.small-text {
+	font-size: 1.0rem;
+	color: rgb(25, 25, 25);
+}
+
+.subtext {
+	display: inline-block;
+	min-width: 300px;
+	width: 60%;
+}
+
+.center-text {
+	text-align: center;
+}
+
+fieldset {
+	border: none;
+	padding: 5px;
+}
+
+legend {
+	font-size: 0;
+}
+
+input[type="text"] {
+	padding: 4px;
+	padding-right: 8px;
+	padding-left: 8px;
+	margin: 4px;
+	border: lightgray 2px solid;
+	max-width: 30rem;
+	width: 50%;
+}
+
+input[type="submit"] {
+	color: white;
+	background-color: green;
+	border: darkgreen 2px solid;
+	border-radius: 2px;
+	padding: 4px;
+	padding-right: 8px;
+	padding-left: 8px;
+	margin: 4px;
+}
+
+input[type="submit"]:disabled {
+	background-color: grey;
+}
+
+.results-pending, .results-error {
+	font-size: 1.4rem;
+}
+
+.results-error::before {
+	content: "ERROR: ";
+	color: red;
+}
+
+#results {
+	margin-top: 40px;
+	backdrop-filter: blur(5px);
+}
+
+#results p {
+	line-height: 1.25;
+}
+
+#results ul {
+	list-style: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.comma-list:not(:first-child)::before {
+	content: ', ';
+}
+
+.comma-list:last-child:not(:first-child)::before {
+	content: ', and ';
+}
+
+.comma-list:nth-child(2):last-child::before {
+	content: ' and ';
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 3.0rem;
+	background-color: rgba(200, 200, 200, 0.4);
+	border-top: rgba(50, 50, 50, 0.2) solid 2px;
+	text-align: right;
+	backdrop-filter: blur(10px);
+}
+
+footer > p {
+	margin-right: 20px;
+	font-size: 1.0rem;
+}
+
+.progress-bar {
+	border: black 2px solid;
+	border-radius: 30px;
+	height: 30px;
+	width: 50%;
+	overflow: hidden;
+}
+
+.progress-bar-elem-visible {
+	background-color: green;
+}
