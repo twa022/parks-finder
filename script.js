@@ -212,5 +212,8 @@ function inputHandler() {
 
 $(document).ready( () => {
 	console.log( STATE_NAMES );
+	if ( CSS.supports("backdrop-filter: blur(2px)") ) {
+		$('footer').addClass('backdrop-blur');
+	}
 	$(inputHandler);
 })
