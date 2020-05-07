@@ -100,6 +100,8 @@ function getParksInState( state ) {
 	});
 	console.log( states );
 	if ( states.length == 0 ) {
+		$('#input-state-submit').prop('disabled', false);
+		$('#input-state').prop('disabled', false);
 		$('#results').html( `<p class="results-error center-text">No valid states provided</p>`);
 		return;
 	}
