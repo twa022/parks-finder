@@ -9,6 +9,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="main.css">
 
+	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">	
 </head>
 <body>
@@ -20,12 +21,19 @@
 				<legend>State</legend>
 				<label for="input-state">State(s): </label>
 				<input type="text" name="input-state" id="input-state">
-				<input type="submit" id="input-state-submit" value="Go">
+				<div class="center-text">
+					<div class="subtext center-text small-text">Use full state name or the two-letter postal abbreviation. Seperate multiples states wtih a comma.</div>
+				</div>
+				<div class="advanced-options">
+					<div class="small-text left-align-text"><button type="button" id="toggle-advanced-options"><i class="fas fa-chevron-right"></i> <span>Advanced Options</span></button></div>
+					<div class="options-container no-display">
+						<label for="num-results">Max results: </label>
+						<input type="number" name="num-results" id="num-results" min="1" max="50" placeholder="10">
+					</div>
+				</div>
+				<div><input type="submit" id="input-state-submit" value="Go"></div>
 			</fieldset>
 		</form>
-		<div class="center-text">
-			<div class="subtext center-text small-text">Use full state name or the two-letter postal abbreviation. Seperate multiples states wtih a comma.</div>
-		</div>
 		<section id="results">
 			
 		</section>
@@ -34,6 +42,7 @@
 		</footer>
 	</main>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>

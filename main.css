@@ -54,12 +54,15 @@ legend {
 	font-size: 0;
 }
 
-#input-state {
+#input-state, #num-results {
 	padding: 4px;
 	padding-right: 8px;
 	padding-left: 8px;
 	margin: 4px;
 	border: lightgray 2px solid;
+}
+
+#input-state {
 	max-width: 30rem;
 	width: 50%;
 }
@@ -146,4 +149,28 @@ footer > p {
 
 .progress-bar-elem-visible {
 	background-color: green;
+}
+
+.advanced-options {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: 500px;
+	width: 80%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: black solid 1px;
+	padding: 4px;
+}
+
+.left-align-text {
+	text-align: left;
+}
+
+.no-display {
+	display: none;
+}
+
+#toggle-advanced-options {
+	border: none;
 }

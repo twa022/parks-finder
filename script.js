@@ -3,6 +3,7 @@
 const API_KEY = 'iP2ugi4PIvfRrZBUEDAIKxlsFjL06reev4kzcdHd';
 const BASE_URL = 'https://developer.nps.gov/api/v1';
 const PARKS_ENDPOINT = `${BASE_URL}/parks`;
+const DEFAULT_NUM_RESULTS = 10;
 
 const STATE_ABBRS = {
 	"ALABAMA": "AL",
@@ -102,14 +103,17 @@ function getParksInState( state ) {
 	if ( states.length == 0 ) {
 		$('#input-state-submit').prop('disabled', false);
 		$('#input-state').prop('disabled', false);
+		$('#toggle-advanced-options').prop('disabled', false);
 		$('#results').html( `<p class="results-error center-text">No valid states provided</p>`);
+		$('#input-state').focus();
 		return;
 	}
+	const numResults = ( $('#num-results').val() ) ? $('#num-results').val() : DEFAULT_NUM_RESULTS;
 	const params = { 
 		"stateCode": states.join(','), 
 		"api_key": API_KEY,
-		/* "limit": 5,
-		"start": 1 */
+		"limit": numResults,
+		/* "start": 1 */
 	}
 	console.log( params );
 	$('#results').html( `<div class="results-pending center-text">
@@ -152,12 +156,15 @@ function getParksInState( state ) {
 			clearInterval( TIMER );
 			$('#input-state-submit').prop('disabled', false);
 			$('#input-state').prop('disabled', false);
+			$('#toggle-advanced-options').prop('disabled', false);
 			$('#results').html( `<ul>${html}</ul>` );
 		}).catch( error => {
 			clearInterval( TIMER );
 			$('#input-state-submit').prop('disabled', false);
 			$('#input-state').prop('disabled', false);
+			$('#toggle-advanced-options').prop('disabled', false);
 			$('#results').html( `<p class="results-error center-text">${error}</p>`);
+			$('#input-state').focus();
 		});
 }
 
@@ -208,7 +215,25 @@ function inputHandler() {
 		console.log( $('#input-state').val() );
 		$('#input-state-submit').prop('disabled', true);
 		$('#input-state').prop('disabled', true);
+		$('#toggle-advanced-options').prop('disabled', true);
 		getParksInState( $('#input-state').val() );
+	})
+}
+
+function toggleAdvancedOptionsHandler() {
+	$('#toggle-advanced-options').on('click', function( event ) {
+		event.stopPropagation();
+		event.preventDefault();
+		console.log('toggle advanced options');
+		if ( $('.options-container').css( 'display' ).localeCompare( 'none' ) === 0 ) {
+			$('.options-container').slideDown();
+			$('#toggle-advanced-options > i').transition( { rotate: '90deg'} );
+			$('#num-results').focus();
+		} else {
+			$('.options-container').slideUp();
+			$('#toggle-advanced-options > i').transition( { rotate: '0deg'} );
+			$('#input-state').focus();
+		}
 	})
 }
 
@@ -218,4 +243,6 @@ $(document).ready( () => {
 		$('footer').addClass('backdrop-blur');
 	}
 	$(inputHandler);
+	$(toggleAdvancedOptionsHandler);
+	$('#input-state').focus();
 })
